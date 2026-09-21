@@ -84,6 +84,6 @@ print(ann_confusion)
 
 #classification report
 from sklearn.metrics import classification_report
-
+#This is lowkey a cool feature for their metrics.
 print("\nANN Classification Report:")
 print(classification_report(y_test, ann_predictions))
