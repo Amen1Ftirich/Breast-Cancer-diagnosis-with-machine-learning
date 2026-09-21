@@ -63,3 +63,20 @@ plot_tree(tree_model,
           )
 plt.title(" Dcision Tree - Wisconsin Breast Cancer Dataset")
 plt.show()
+
+#Random forest classifier 
+from sklearn.ensemble import RandomForestClassifier
+
+forest_model = RandomForestClassifier(
+    n_estimators=100, # n of decision trees
+    random_state=67
+)
+
+forest_model.fit(X_train, y_train)
+#testing it:
+
+forest_predictions = forest_model.predict(X_Test)
+
+forest_accuracy = accuracy_score(y_test, forest_predictions)
+
+print("Random Forest Accuracy:", forest_accuracy)
