@@ -47,3 +47,19 @@ tree_predictions = tree_model.predict(X_Test)
 from sklearn.metrics import accuracy_score
 tree_accuracy = accuracy_score(y_test, tree_predictions)
 print("Decision Tree accuracy:", tree_accuracy)
+
+#Now plotting it
+from matplotlib import pyplot as plt
+from sklearn.tree import plot_tree
+
+plt.figure(figsize=(30,12)) #Random parameters
+#I got these from their website
+plot_tree(tree_model,
+        feature_names= X.columns,
+        class_names= tree_model.classes_,
+        filled= True,
+        rounded = True,
+        fontsize=8, #I tried other ones this is is good
+          )
+plt.title(" Dcision Tree - Wisconsin Breast Cancer Dataset")
+plt.show()
