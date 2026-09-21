@@ -52,7 +52,7 @@ print("Decision Tree accuracy:", tree_accuracy)
 from matplotlib import pyplot as plt
 from sklearn.tree import plot_tree
 
-plt.figure(figsize=(30,12)) #Random parameters
+plt.figure(figsize=(17,10)) #Random parameters
 #I got these from their website
 plot_tree(tree_model,
         feature_names= X.columns,
