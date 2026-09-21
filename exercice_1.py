@@ -25,7 +25,25 @@ from sklearn.model_selection import train_test_split
 X_train, X_Test, y_train, y_test = train_test_split(
     X,
     y,
-    test_size = 0.2 # emaning 20% of the data
-    random_state = 67 #This jawn hdre freezes the state so that everytime I don't get a new set to train and test, it could be any number
-    stratisfy = y # Keeps approx the same values of the different observations in the test adn the train kits , super interesting stuff
+    test_size = 0.2, # emaning 20% of the data
+    random_state = 67, #This jawn hdre freezes the state so that everytime I don't get a new set to train and test, it could be any number
+    stratify = y # Keeps approx the same values of the different observations in the test adn the train kits , super interesting stuff
 )
+#Now building the decision tree itself
+
+from sklearn.tree import DecisionTreeClassifier
+
+tree_model = DecisionTreeClassifier(
+    max_depth= None,
+    random_state= 67
+)
+
+tree_model.fit(X_train, y_train)
+
+#Now we give the model states it has not seen before
+tree_predictions = tree_model.predict(X_Test)
+
+#calcualting classification accuracy
+from sklearn.metrics import accuracy_score
+tree_accuracy = accuracy_score(y_test, tree_predictions)
+print("Decision Tree accuracy:", tree_accuracy)
